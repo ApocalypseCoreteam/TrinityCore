@@ -58,9 +58,8 @@ enum BountyPrice
 };
 #endif
 
-bool passChecks(Player * pPlayer, const char * name)
-{ 
-
+bool passChecks(Player * pPlayer, const char * name) override
+{
 	Player * pBounty = sObjectAccessor->FindPlayerByName(name);
 	WorldSession * m_session = pPlayer->GetSession();
 	if(!pBounty)
@@ -82,7 +81,7 @@ bool passChecks(Player * pPlayer, const char * name)
 	return true;
 }
 
-void alertServer(const char * name, int msg)
+void alertServer(const char * name, int msg) override
 {
 	std::string message;
 	if(msg == 1)
@@ -101,7 +100,7 @@ void alertServer(const char * name, int msg)
 }
 
 
-bool hasCurrency(Player * pPlayer, uint32 required, int currency)
+bool hasCurrency(Player * pPlayer, uint32 required, int currency) override
 {
 	WorldSession *m_session = pPlayer->GetSession();
 	switch(currency)
@@ -144,7 +143,7 @@ bool hasCurrency(Player * pPlayer, uint32 required, int currency)
 	return true;
 }
 
-void flagPlayer(const char * name)
+void flagPlayer(const char * name) override
 {
 	Player * pBounty = sObjectAccessor->FindPlayerByName(name);
 	pBounty->SetPvP(true);
@@ -154,8 +153,8 @@ void flagPlayer(const char * name)
 class BountyHunter : public CreatureScript
 {
 	public:
-		BountyHunter() : CreatureScript("BountyHunter"){}
-		bool OnGossipHello(Player * Player, Creature * Creature)
+		BountyHunter() : CreatureScript("BountyHunter") { }
+		bool OnGossipHello(Player * Player, Creature * Creature) override
 		{
 			Player->ADD_GOSSIP_ITEM(GOSSIP_ICON_BATTLE, PLACE_BOUNTY, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF+1);
 			Player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, LIST_BOUNTY, GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF+2);
@@ -167,7 +166,7 @@ class BountyHunter : public CreatureScript
 			return true;
 		}
 
-		bool OnGossipSelect(Player* pPlayer, Creature* pCreature, uint32 /*uiSender*/, uint32 uiAction)
+		bool OnGossipSelect(Player* pPlayer, Creature* pCreature, uint32 /*uiSender*/, uint32 uiAction) override
 		{
 			pPlayer->PlayerTalkClass->ClearMenus();
 			switch(uiAction)
@@ -190,7 +189,7 @@ class BountyHunter : public CreatureScript
 						pPlayer->PlayerTalkClass->SendCloseGossip();
 						return false;
 					}
-#if SET_CURRENCY == 0
+					#if SET_CURRENCY == 0
 					if(	Bounties->GetRowCount() > 1)
 					{
 						pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_BATTLE, "Bounties: ", GOSSIP_SENDER_MAIN, 1);
@@ -221,8 +220,8 @@ class BountyHunter : public CreatureScript
 						pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_BATTLE, option, GOSSIP_SENDER_MAIN, 1);
 						
 					}
-#endif
-#if SET_CURRENCY == 1
+					#endif
+					#if SET_CURRENCY == 1
 					if(	Bounties->GetRowCount() > 1)
 					{
 						pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_BATTLE, "Bounties: ", GOSSIP_SENDER_MAIN, 1);
@@ -253,8 +252,8 @@ class BountyHunter : public CreatureScript
 						pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_BATTLE, option, GOSSIP_SENDER_MAIN, 1);
 						
 					}
-#endif
-#if SET_CURRENCY == 2
+					#endif
+					#if SET_CURRENCY == 2
 					if(	Bounties->GetRowCount() > 1)
 					{
 						pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_BATTLE, "Bounties: ", GOSSIP_SENDER_MAIN, 1);
@@ -285,7 +284,7 @@ class BountyHunter : public CreatureScript
 						pPlayer->ADD_GOSSIP_ITEM(GOSSIP_ICON_BATTLE, option, GOSSIP_SENDER_MAIN, 1);
 						
 					}
-#endif
+					#endif
 					pPlayer->PlayerTalkClass->SendGossipMenu(878, pCreature->GetGUID());
 					break;
 				}
@@ -304,7 +303,7 @@ class BountyHunter : public CreatureScript
 			return true;
 		}
 
-		bool OnGossipSelectCode(Player* pPlayer, Creature* pCreature, uint32 uiSender, uint32 uiAction, const char * code)
+		bool OnGossipSelectCode(Player* pPlayer, Creature* pCreature, uint32 uiSender, uint32 uiAction, const char * code) override
 		{
 			pPlayer->PlayerTalkClass->ClearMenus();
 			if ( uiSender == GOSSIP_SENDER_MAIN )
@@ -395,7 +394,7 @@ class BountyKills : public PlayerScript
 	public:
 		BountyKills() : PlayerScript("BountyKills"){}
 
-		void OnPVPKill(Player * Killer, Player * Bounty)
+		void OnPVPKill(Player * Killer, Player * Bounty) override
 		{
 			if(Killer->GetGUID() == Bounty->GetGUID())
 				return;
