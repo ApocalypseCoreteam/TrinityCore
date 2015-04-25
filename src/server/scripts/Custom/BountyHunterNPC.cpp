@@ -5,14 +5,14 @@
 #define TOKEN_ID 0 // token id
 
 #if SET_CURRENCY == 0
-#define BOUNTY_1 "I would like to place a 20g bounty."
-#define BOUNTY_2 "I would like to place a 40g bounty."
-#define BOUNTY_3 "I would like to place a 100g bounty."
-#define BOUNTY_4 "I would like to place a 200g bounty."
-#define BOUNTY_5 "I would like to place a 300g bounty."
-#define BOUNTY_6 "I would like to place a 400g bounty."
-#define BOUNTY_7 "I would like to place a 500g bounty."
-#define BOUNTY_8 "I would like to place a 700g bounty."
+#define BOUNTY_1 "I would like to place a 50g bounty."
+#define BOUNTY_2 "I would like to place a 100g bounty."
+#define BOUNTY_3 "I would like to place a 200g bounty."
+#define BOUNTY_4 "I would like to place a 400g bounty."
+#define BOUNTY_5 "I would like to place a 800g bounty."
+#define BOUNTY_6 "I would like to place a 1600g bounty."
+#define BOUNTY_7 "I would like to place a 3200g bounty."
+#define BOUNTY_8 "I would like to place a 6400g bounty."
 #endif
 #if SET_CURRENCY == 1
 #define BOUNTY_1 "I would like to place a 20 honor bounty."
@@ -35,18 +35,17 @@
 
 
 
-#if SET_CURRENCY != 2
-//these are just visual prices, if you want to to change the real one, edit the sql further below
+#if SET_CURRENCY != 2 //these are just visual prices, if you want to to change the real one, edit the sql further below
 enum BountyPrice
 {
-	BOUNTY_PRICE_1 = 20,
-	BOUNTY_PRICE_2 = 40,
-	BOUNTY_PRICE_3 = 100,
-	BOUNTY_PRICE_4 = 200,
-	BOUNTY_PRICE_5 = 300,
-	BOUNTY_PRICE_6 = 400,
-	BOUNTY_PRICE_7 = 500,
-	BOUNTY_PRICE_8 = 700,
+	BOUNTY_PRICE_1 = 50,
+	BOUNTY_PRICE_2 = 100,
+	BOUNTY_PRICE_3 = 200,
+	BOUNTY_PRICE_4 = 400,
+	BOUNTY_PRICE_5 = 800,
+	BOUNTY_PRICE_6 = 1600,
+	BOUNTY_PRICE_7 = 3200,
+	BOUNTY_PRICE_8 = 6400,
 };
 #else
 enum BountyPrice
