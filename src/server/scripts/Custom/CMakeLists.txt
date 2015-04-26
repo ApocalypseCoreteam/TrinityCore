@@ -13,7 +13,13 @@
 set(scripts_STAT_SRCS
   ${scripts_STAT_SRCS}
 #  ${sources_Custom}
-Custom/BountyHunterNPC.cpp
+	Custom/BountyHunter.cpp
+	Custom/beastmaster.cpp
+	Custom/professionnpc.cpp
+	Custom/resetduel.cpp
+	Custom/enchant.cpp
+	Custom/killstreak.cpp
+	Custom/npc_title.cpp
 )
 
 message("  -> Prepared: Custom")

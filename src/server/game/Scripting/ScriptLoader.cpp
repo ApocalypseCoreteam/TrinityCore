@@ -1415,8 +1415,19 @@ void AddBattlegroundScripts()
 
 #ifdef SCRIPTS
 /* This is where custom scripts' loading functions should be declared. */
-    void AddSC_BountyHunter();
-
+void AddSC_BountyHunter();
+// Beastmaster
+void AddSC_Beastmaster();
+// Profession Npc
+void AddSC_professionnpc();
+// Duel Reset
+void AddSC_Reset();
+// Enchant NPC
+void AddSC_npc_enchantment();
+// Killstreak
+void AddSC_system_player_streak();
+// Killstreak
+void AddSC_TitleNpc();
 #endif
 
 void AddCustomScripts()
@@ -1424,6 +1435,18 @@ void AddCustomScripts()
 #ifdef SCRIPTS
     /* This is where custom scripts should be added. */
     AddSC_BountyHunter();
+    // Beastmaster
+    AddSC_Beastmaster();
+    // Profession Npc
+    AddSC_professionnpc();
+    // Duel Reset
+    AddSC_Reset();
+    // Enchant NPC
+    AddSC_npc_enchantment();
+    // Killstreak
+    AddSC_TitleNpc();
+    // Killstreak
+    AddSC_system_player_streak();
 
 #endif
 }

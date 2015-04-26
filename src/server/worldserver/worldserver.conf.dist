@@ -33,6 +33,8 @@
 #    AUCTION HOUSE BOT BUYER CONFIG
 #    LOGGING SYSTEM SETTINGS
 #    PACKET SPOOF PROTECTION SETTINGS
+#    BEASTMASTER CONFIGURATION
+#    PROFESSION NPC
 #
 ###################################################################################################
 
@@ -3358,6 +3360,82 @@ PacketSpoof.BanMode = 0
 #
 
 PacketSpoof.BanDuration = 86400
+
+#
+###################################################################################################
+
+###################################################################################################
+#
+# BeastMaster Configuration
+#
+# BeastMaster Hunter Only
+#                 = 0 (Anyone can use)
+#         default = 1 (Hunter only)
+
+BeastMaster.OnlyHunter = 1
+
+#
+# BeastMaster Enable Normal Pets
+#                 = 0  (Normal pets disabled)
+#         default = 1  (Normal Pets enabled)
+#
+
+BeastMaster.EnableNormalPet = 1
+
+#
+# BeastMaster Enable Exotic Pets
+#                 = 0  (Anyone Can get Exotic pets)
+#         default = 1  (Can only get Exotic Pets if you know how)
+#
+
+BeastMaster.EnableExoticPet = 1
+
+#
+###################################################################################################
+
+###################################################################################################
+#
+#       Profession NPC
+#
+# Enable or Disable Primary Professions
+#         default = 1 (Enabled)
+#                   = 0 (Disabled)
+
+ProfessionNPC.EnableProfessions = 1
+
+# Enable or Disable Secondary Professions
+#         default = 1 (Enabled)
+#                   = 0 (Disabled)
+
+ProfessionNPC.EnableSecondarySkills = 1
+
+# Number of Skill points
+#         default = 10
+
+SkillPoints = 10
+
+# GM Only
+#         default = 0 (Anyone can use)
+#                   = 1 (GM only)
+
+ProfessionNPC.OnlyGMs = 0
+
+# Cost of skill points (in copper)
+#         default = 10000 (10 gold)
+
+SkillGoldCost = 10000
+
+# Use Tokens instead of gold
+#         default = 0 (Use Gold)
+#                 = 1 (Use Tokens)
+
+ProfessionNPC.UseTokens = 1
+
+# Entry number of "token" Item
+#         default = 0 (No item. ProfessionNPC.UseTokens must = 0)
+#                 = n (n = entry number of item)
+
+ProfessionNPC.ItemEntryNum = 99999
 
 #
 ###################################################################################################

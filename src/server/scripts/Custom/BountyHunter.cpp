@@ -57,7 +57,7 @@ enum BountyPrice
 };
 #endif
 
-bool passChecks(Player * pPlayer, const char * name) override
+bool passChecks(Player * pPlayer, const char * name)
 {
 	Player * pBounty = sObjectAccessor->FindPlayerByName(name);
 	WorldSession * m_session = pPlayer->GetSession();
@@ -80,7 +80,7 @@ bool passChecks(Player * pPlayer, const char * name) override
 	return true;
 }
 
-void alertServer(const char * name, int msg) override
+void alertServer(const char * name, int msg)
 {
 	std::string message;
 	if(msg == 1)
@@ -99,7 +99,7 @@ void alertServer(const char * name, int msg) override
 }
 
 
-bool hasCurrency(Player * pPlayer, uint32 required, int currency) override
+bool hasCurrency(Player * pPlayer, uint32 required, int currency)
 {
 	WorldSession *m_session = pPlayer->GetSession();
 	switch(currency)
@@ -142,7 +142,7 @@ bool hasCurrency(Player * pPlayer, uint32 required, int currency) override
 	return true;
 }
 
-void flagPlayer(const char * name) override
+void flagPlayer(const char * name)
 {
 	Player * pBounty = sObjectAccessor->FindPlayerByName(name);
 	pBounty->SetPvP(true);
