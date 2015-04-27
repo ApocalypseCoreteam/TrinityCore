@@ -139,7 +139,7 @@ bool showExoticPet(Player *player, Creature *m_creature, uint32 showFromId = 0)
  {
  uint32 entryNum = 0;
  std::string petName = "";
-  do
+ do
  {
  Field *fields = result->Fetch();
  entryNum = fields[0].GetInt32();
@@ -312,7 +312,7 @@ if (result)
 //player->ADD_GOSSIP_ITEM( 7, MAIN_MENU, GOSSIP_SENDER_MAIN, 5005);
 }
 
- switch(uiAction)
+switch(uiAction)
 {
 
 case 1000: //Normal Pet

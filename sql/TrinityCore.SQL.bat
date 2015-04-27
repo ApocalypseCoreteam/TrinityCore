@@ -4,7 +4,7 @@ COLOR E0
 @echo *                                                                       *
 @echo *     ##########################################################        *
 @echo #     ##******************************************************##        #
-@echo *     ##*   *Apocalypse* - Archivo de unificacion de SQL's   *##        * 
+@echo *     ##*   *TrinityCore* - Archivo de unificacion de SQL's   *##        * 
 @echo *     ##******************************************************##        *
 @echo #     ##########################################################        #
 @echo *                                                                       *
@@ -15,8 +15,8 @@ COLOR E0
 @echo #      Por favor no editar este archivo a menos que sepan               #
 @echo *      lo que hagan. Gracias                                            *
 @echo *                                                                       *
-@echo #               *ApocalypseCore 2013*                                   #
-@echo *          Desarrollado por ApocalyseCoreTeam                           *
+@echo #               *TrinityCore 2015*                                      #
+@echo *          Desarrollado por DevTeam Qualti va                           *
 @echo *                                                                       *
 @echo #                                                                       #
 @echo *          El proceso empezara AHORA!                                   * 
@@ -27,7 +27,7 @@ pause
 @echo off
 pausa
 
-set filename=ApocalypseCore.sql
+set filename=TrinityCore.sql
 
 if exist %filename% del %filename%
 

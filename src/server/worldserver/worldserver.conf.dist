@@ -34,6 +34,7 @@
 #    LOGGING SYSTEM SETTINGS
 #    PACKET SPOOF PROTECTION SETTINGS
 #    BEASTMASTER CONFIGURATION
+#    DUEL RESET
 #    PROFESSION NPC
 #
 ###################################################################################################
@@ -1217,7 +1218,7 @@ Updates.CleanDeadRefMaxCount = 3
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-Warden.Enabled = 0
+Warden.Enabled = 1
 
 #
 #    Warden.NumMemChecks
@@ -2136,7 +2137,7 @@ Stats.Limits.Crit  = 95.0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AutoBroadcast.On = 0
+AutoBroadcast.On = 1
 
 #
 #    AutoBroadcast.Center
@@ -2173,7 +2174,7 @@ Battleground.CastDeserter = 1
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-Battleground.QueueAnnouncer.Enable = 0
+Battleground.QueueAnnouncer.Enable = 1
 
 #
 #    Battleground.QueueAnnouncer.PlayerOnly
@@ -2269,7 +2270,7 @@ Battleground.RewardLoserHonorLast   = 5
 #         Default:     0 - (Disabled)
 #                      1 - (Enabled, Experimental as of still being in development)
 
-Wintergrasp.Enable = 0
+Wintergrasp.Enable = 1
 
 #
 #     Wintergrasp.PlayerMax
@@ -2587,7 +2588,7 @@ PlayerStart.AllReputation = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-PlayerStart.AllSpells = 0
+PlayerStart.AllSpells = 1
 
 #
 #    PlayerStart.MapsExplored
@@ -2595,7 +2596,7 @@ PlayerStart.AllSpells = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-PlayerStart.MapsExplored = 0
+PlayerStart.MapsExplored = 1
 
 #
 #    HonorPointsAfterDuel
@@ -2612,7 +2613,7 @@ HonorPointsAfterDuel = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AlwaysMaxWeaponSkill = 0
+AlwaysMaxWeaponSkill = 1
 
 #
 #    PvPToken.Enable
@@ -2621,7 +2622,7 @@ AlwaysMaxWeaponSkill = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-PvPToken.Enable = 0
+PvPToken.Enable = 1
 
 #
 #    PvPToken.MapAllowType
@@ -3391,6 +3392,20 @@ BeastMaster.EnableNormalPet = 1
 BeastMaster.EnableExoticPet = 1
 
 #
+###################################################################################################
+
+###################################################################################################
+# Duel Reset
+###################################################################################################
+#
+# Duel.Reset
+#       1 = Enable
+#       0 = Disable
+#
+#       Default = 0
+
+Duel.Reset = 1
+
 ###################################################################################################
 
 ###################################################################################################

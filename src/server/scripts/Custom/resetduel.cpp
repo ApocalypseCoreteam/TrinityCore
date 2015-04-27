@@ -1,25 +1,43 @@
-#include "ScriptPCH.h"
+#include "ScriptPCH.h" 
+#include "Config.h" 
+#include "Language.h" 
 
-class Reset_OnDuelEnd : public PlayerScript
-{
-    public:
-        Reset_OnDuelEnd() : PlayerScript("Reset_OnDuelEnd") {}
+bool Duel_Resets; 
 
-    void OnDuelEnd(Player *winner, Player *looser, DuelCompleteType type) override
-    {
-		winner->GetSession()->SendNotification("You just defeated %s! in a duel!", looser->GetName());
-		winner->RemoveArenaSpellCooldowns();
-		winner->SetHealth(winner->GetMaxHealth());
-		looser->GetSession()->SendNotification("%s defeated you in a duel!", winner->GetName());
-		looser->SetHealth(looser->GetMaxHealth());
-		if (winner->getPowerType() == POWER_MANA) 
-			winner->SetPower(POWER_MANA, winner->GetMaxPower(POWER_MANA));
-		if (looser->getPowerType() == POWER_MANA) 
-		looser->SetPower(POWER_MANA, looser->GetMaxPower(POWER_MANA));
-    }
-};
+class Duel_Reset : public PlayerScript 
+{ 
+	public: 
+		Duel_Reset() : PlayerScript("Duel_Reset"){} 
 
-void AddSC_Reset()
-{
-    new Reset_OnDuelEnd;
+		void OnDuelEnd(Player* pWinner, Player* pLoser, DuelCompleteType /*type*/)
+		{ 
+			if (pWinner->GetZoneId() == 33 && pLoser->GetZoneId() == 33) 
+
+				pWinner->RemoveAllSpellCooldown(); 
+				pLoser->RemoveAllSpellCooldown(); 
+				pWinner->SetHealth(pWinner->GetMaxHealth()); 
+				if ( pWinner->getPowerType() == POWER_MANA ) 
+					pWinner->SetPower(POWER_MANA, pWinner->GetMaxPower(POWER_MANA)); 
+				if (Duel_Resets) 
+					pLoser->SetHealth(pLoser->GetMaxHealth()); 
+				if ( pLoser->getPowerType() == POWER_MANA ) 
+					pLoser->SetPower(POWER_MANA,  pLoser->GetMaxPower(POWER_MANA)); 
+		} 
+}; 
+
+class Duel_Reset_WorldScript : public WorldScript 
+{ 
+	public: 
+		Duel_Reset_WorldScript() : WorldScript("Script_npc_changer_WorldScript") { } 
+
+		void OnConfigLoad(bool /*reload*/) 
+		{ 
+			Duel_Resets = sConfigMgr->GetBoolDefault("Duel.Reset", true); 
+		} 
+}; 
+
+void AddSC_Duel_Reset() 
+{ 
+        new Duel_Reset(); 
+        new Duel_Reset_WorldScript(); 
 }

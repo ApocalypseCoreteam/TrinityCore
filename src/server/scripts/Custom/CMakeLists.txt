@@ -13,7 +13,6 @@
 set(scripts_STAT_SRCS
   ${scripts_STAT_SRCS}
 #  ${sources_Custom}
-	Custom/BountyHunter.cpp
 	Custom/beastmaster.cpp
 	Custom/professionnpc.cpp
 	Custom/resetduel.cpp
