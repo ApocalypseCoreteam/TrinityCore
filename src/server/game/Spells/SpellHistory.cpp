@@ -22,6 +22,7 @@
 #include "SpellInfo.h"
 #include "Spell.h"
 #include "World.h"
+#include "Opcodes.h"
 
 SpellHistory::Clock::duration const SpellHistory::InfinityCooldownDelay = std::chrono::duration_cast<SpellHistory::Clock::duration>(std::chrono::seconds(MONTH));
 SpellHistory::Clock::duration const SpellHistory::InfinityCooldownDelayCheck = std::chrono::duration_cast<SpellHistory::Clock::duration>(std::chrono::seconds(MONTH / 2));
@@ -627,6 +628,7 @@ void SpellHistory::BuildCooldownPacket(WorldPacket& data, uint8 flags, uint32 sp
 void SpellHistory::BuildCooldownPacket(WorldPacket& data, uint8 flags, PacketCooldowns const& cooldowns) const
 {
     data.Initialize(SMSG_SPELL_COOLDOWN, 8 + 1 + (4 + 4) * cooldowns.size());
+    data << uint64(_owner->GetGUID());
     data << uint8(flags);
     for (auto const& cooldown : cooldowns)
     {
