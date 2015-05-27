@@ -1420,7 +1420,7 @@ void AddBattlegroundScripts()
 // Beastmaster
 void AddSC_Beastmaster();
 // Profession Npc
-void AddSC_professionnpc();
+void AddSC_Professions_NPC();
 // Duel Reset
 void AddSC_Duel_Reset();
 // Enchant NPC
@@ -1438,7 +1438,7 @@ void AddCustomScripts()
     // Beastmaster
     AddSC_Beastmaster();
     // Profession Npc
-    AddSC_professionnpc();
+    AddSC_Professions_NPC();
     // Duel Reset
     AddSC_Duel_Reset();
     // Enchant NPC

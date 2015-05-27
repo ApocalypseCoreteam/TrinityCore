@@ -35,7 +35,6 @@
 #    PACKET SPOOF PROTECTION SETTINGS
 #    BEASTMASTER CONFIGURATION
 #    DUEL RESET
-#    PROFESSION NPC
 #
 ###################################################################################################
 
@@ -3406,51 +3405,4 @@ BeastMaster.EnableExoticPet = 1
 
 Duel.Reset = 1
 
-###################################################################################################
-
-###################################################################################################
-#
-#       Profession NPC
-#
-# Enable or Disable Primary Professions
-#         default = 1 (Enabled)
-#                   = 0 (Disabled)
-
-ProfessionNPC.EnableProfessions = 1
-
-# Enable or Disable Secondary Professions
-#         default = 1 (Enabled)
-#                   = 0 (Disabled)
-
-ProfessionNPC.EnableSecondarySkills = 1
-
-# Number of Skill points
-#         default = 10
-
-SkillPoints = 10
-
-# GM Only
-#         default = 0 (Anyone can use)
-#                   = 1 (GM only)
-
-ProfessionNPC.OnlyGMs = 0
-
-# Cost of skill points (in copper)
-#         default = 10000 (10 gold)
-
-SkillGoldCost = 10000
-
-# Use Tokens instead of gold
-#         default = 0 (Use Gold)
-#                 = 1 (Use Tokens)
-
-ProfessionNPC.UseTokens = 1
-
-# Entry number of "token" Item
-#         default = 0 (No item. ProfessionNPC.UseTokens must = 0)
-#                 = n (n = entry number of item)
-
-ProfessionNPC.ItemEntryNum = 99999
-
-#
 ###################################################################################################
