@@ -273,13 +273,6 @@ enum UnitRename
 #define MAX_AGGRO_RESET_TIME 10 // in seconds
 #define MAX_AGGRO_RADIUS 45.0f  // yards
 
-enum Swing
-{
-    NOSWING                    = 0,
-    SINGLEHANDEDSWING          = 1,
-    TWOHANDEDSWING             = 2
-};
-
 enum VictimState
 {
     VICTIMSTATE_INTACT         = 0, // set when attacker misses
@@ -356,7 +349,7 @@ class TransportBase;
 class SpellCastTargets;
 
 typedef std::list<Unit*> UnitList;
-typedef std::list< std::pair<Aura*, uint8> > DispelChargesList;
+typedef std::list<std::pair<Aura*, uint8>> DispelChargesList;
 
 struct SpellImmune
 {
@@ -379,13 +372,6 @@ enum WeaponDamageRange
 {
     MINDAMAGE,
     MAXDAMAGE
-};
-
-enum DamageTypeToSchool
-{
-    RESISTANCE,
-    DAMAGE_DEALT,
-    DAMAGE_TAKEN
 };
 
 enum AuraRemoveMode
@@ -1583,7 +1569,7 @@ class Unit : public WorldObject
         virtual bool SetWalk(bool enable);
         virtual bool SetDisableGravity(bool disable, bool packetOnly = false);
         virtual bool SetSwim(bool enable);
-        virtual bool SetCanFly(bool enable);
+        virtual bool SetCanFly(bool enable, bool packetOnly = false);
         virtual bool SetWaterWalking(bool enable, bool packetOnly = false);
         virtual bool SetFeatherFall(bool enable, bool packetOnly = false);
         virtual bool SetHover(bool enable, bool packetOnly = false);
@@ -1896,7 +1882,7 @@ class Unit : public WorldObject
         void TauntApply(Unit* victim);
         void TauntFadeOut(Unit* taunter);
         ThreatManager& getThreatManager() { return m_ThreatManager; }
-        void addHatedBy(HostileReference* pHostileReference) { m_HostileRefManager.insertFirst(pHostileReference); };
+        void addHatedBy(HostileReference* pHostileReference) { m_HostileRefManager.insertFirst(pHostileReference); }
         void removeHatedBy(HostileReference* /*pHostileReference*/) { /* nothing to do yet */ }
         HostileRefManager& getHostileRefManager() { return m_HostileRefManager; }
 
